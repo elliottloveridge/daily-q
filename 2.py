@@ -15,9 +15,30 @@ second_input = [3, 2, 1]
 
 #---------------------------------------------------------------------------#
 
-# My Solution:
-output = 1  ## FIXME: want to find a way to do it wihtout hardcoding this
-output_list = []
 
-for _, item in enumerate(first_input):
-    
+# My Solution:
+output_list = []
+input = first_input
+
+for _, item in enumerate(input):
+    output = 1
+    for i in range(len(input)):
+        if i != _:
+            output *= input[i]
+    output_list.append(output)
+print(output_list)
+
+## NOTE: Working but should try and do it without using two loops.
+
+
+# Second Attempt:
+# This is how you could do it with division...
+# You can use numpy as you are given an array
+import numpy as np
+
+output_list = []
+input = first_input
+
+for item in input:
+    output_list.append(np.prod(np.array(input)) // item)
+print(output_list)
